@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5jpvyljwil6b"
-path="res://.godot/imported/jame-gam-palette.webp-936e4784e223da8a5efa126fb67247d6.ctex"
+uid="uid://krsdau688ld1"
+path="res://.godot/imported/Joueurfinaaaale.png-4d16a8dccc664b25e811e2adae7e8a36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://jame-gam-palette.webp"
-dest_files=["res://.godot/imported/jame-gam-palette.webp-936e4784e223da8a5efa126fb67247d6.ctex"]
+source_file="res://Joueurfinaaaale.png"
+dest_files=["res://.godot/imported/Joueurfinaaaale.png-4d16a8dccc664b25e811e2adae7e8a36.ctex"]
 
 [params]
 
