@@ -25,11 +25,5 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()  
 	
-	for i in range(get_slide_collision_count()):
-		var collision = get_slide_collision(i)
-		if collision.get_collider().is_in_group("obstacle"):
-			die()
-			
-func die():
-		print("Game Over")
-		get_tree().reload_current_scene()
+
+		

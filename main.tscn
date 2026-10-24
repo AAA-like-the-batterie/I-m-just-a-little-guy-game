@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://krsdau688ld1" path="res://Joueurfinaaaale.png" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bnl6brx4m8wqf" path="res://Roadefinale.png" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://i2obk38h4tfs" path="res://obstacle.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cjwldhg2ncjcf" path="res://obstacle1.tscn" id="5_lquwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nx3u1"]
 size = Vector2(110, 158)
@@ -52,3 +53,11 @@ tile_set = SubResource("TileSet_ayu5h")
 [node name="Obstacle" parent="." unique_id=1627262524 instance=ExtResource("4_1bvp3")]
 position = Vector2(-4039, 335)
 scale = Vector2(1.5, 1.5)
+
+[node name="StaticBody2D" parent="." unique_id=205096246 instance=ExtResource("5_lquwl")]
+position = Vector2(-3402, 325)
+scale = Vector2(0.25, 0.25)
+
+[node name="StaticBody2D2" parent="." unique_id=1886852393 instance=ExtResource("5_lquwl")]
+position = Vector2(-2884, 360)
+scale = Vector2(0.25, 0.25)
