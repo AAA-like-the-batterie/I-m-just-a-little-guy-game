@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b5at1lftbob1a"]
+
+[ext_resource type="Texture2D" uid="uid://c1y16gbiircsi" path="res://Caillou2.png" id="1_74rs5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nx3u1"]
+radius = 37.0
+height = 214.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v26cs"]
+radius = 27.0
+height = 164.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nx3u1"]
+size = Vector2(92, 66.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v26cs"]
+size = Vector2(23.692429, 53.399864)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1130820910 groups=["obstacle3"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=672968500]
+position = Vector2(12, -4)
+scale = Vector2(0.361, 0.361)
+texture = ExtResource("1_74rs5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1449447404 groups=["obstacle3"]]
+position = Vector2(4, -4)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_nx3u1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=523409248 groups=["obstacle3"]]
+position = Vector2(-5, -48)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_v26cs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=782903014 groups=["obstacle3"]]
+position = Vector2(-100, 19)
+shape = SubResource("RectangleShape2D_nx3u1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=1250714307 groups=["obstacle3"]]
+position = Vector2(116.24991, -3.497509)
+rotation = -0.4223697
+shape = SubResource("RectangleShape2D_v26cs")
