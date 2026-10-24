@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfmipb3crpmnk"
-path="res://.godot/imported/Temporary.png-9eb2171e85a0ee6be15d1c9bf568d78c.ctex"
+uid="uid://bnl6brx4m8wqf"
+path="res://.godot/imported/Roadefinale.png-68d03e33c1f2803c5673fe938e10068a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Temporary.png"
-dest_files=["res://.godot/imported/Temporary.png-9eb2171e85a0ee6be15d1c9bf568d78c.ctex"]
+source_file="res://Roadefinale.png"
+dest_files=["res://.godot/imported/Roadefinale.png-68d03e33c1f2803c5673fe938e10068a.ctex"]
 
 [params]
 

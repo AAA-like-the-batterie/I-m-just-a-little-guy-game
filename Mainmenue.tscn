@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://wp452chfo80j"]
+
+[sub_resource type="Gradient" id="Gradient_4f5ja"]
+offsets = PackedFloat32Array(0, 0.9969325, 1)
+colors = PackedColorArray(0.5331382, 0.6342396, 0.46367735, 1, 0.48394054, 0.62080735, 0.5964301, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4f5ja"]
+gradient = SubResource("Gradient_4f5ja")
+fill_from = Vector2(0.2654321, 0.5781893)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nx3u1"]
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" unique_id=494169722]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1962922546]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_4f5ja")
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=502735443]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -321.0
+offset_top = 150.0
+offset_right = 316.0
+offset_bottom = 238.0
+grow_horizontal = 2
+text = "I'm just a little guy.."
+label_settings = SubResource("LabelSettings_nx3u1")

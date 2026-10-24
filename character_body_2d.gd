@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 
+
 const SPEED = 500.0
-const JUMP_VELOCITY = -900.0
+const JUMP_VELOCITY = -800.0
 
 
 func _physics_process(delta: float) -> void:
@@ -22,4 +23,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, 12)
 
-	move_and_slide()
+	move_and_slide()  
+	
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		if collision.get_collider().is_in_group("obstacle"):
+			die()
+			
+func die():
+		print("Game Over")
+		queue_free()

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://i2obk38h4tfs"]
+
+[ext_resource type="Texture2D" uid="uid://b88j4dj1stwmf" path="res://Caillou.png" id="1_sl1jc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nx3u1"]
+radius = 78.10249
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayu5h"]
+size = Vector2(38.125, 61.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v26cs"]
+size = Vector2(68, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duv6e"]
+size = Vector2(126, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nx3u1"]
+size = Vector2(74, 105)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_see50"]
+size = Vector2(33, 79.00163)
+
+[node name="Obstacle" type="StaticBody2D" unique_id=1627262524 groups=["obstacle"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1385256825]
+position = Vector2(1, 5.9999847)
+scale = Vector2(0.159668, 0.159668)
+texture = ExtResource("1_sl1jc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1082381313 groups=["obstacle"]]
+position = Vector2(8, -6)
+shape = SubResource("CircleShape2D_nx3u1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1523822713 groups=["obstacle"]]
+position = Vector2(-75.9375, 31.25)
+shape = SubResource("RectangleShape2D_ayu5h")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=530716927 groups=["obstacle"]]
+position = Vector2(78, 34)
+shape = SubResource("RectangleShape2D_v26cs")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=1203127145 groups=["obstacle"]]
+position = Vector2(-10, 56.5)
+shape = SubResource("RectangleShape2D_duv6e")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="." unique_id=311466810 groups=["obstacle"]]
+position = Vector2(-40, -19)
+rotation = 0.43982297
+shape = SubResource("RectangleShape2D_nx3u1")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="." unique_id=1703002096 groups=["obstacle"]]
+position = Vector2(73.99999, -31)
+rotation = -0.49392816
+shape = SubResource("RectangleShape2D_see50")
