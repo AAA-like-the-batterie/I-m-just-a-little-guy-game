@@ -32,4 +32,4 @@ func _physics_process(delta: float) -> void:
 			
 func die():
 		print("Game Over")
-		queue_free()
+		get_tree().reload_current_scene()
