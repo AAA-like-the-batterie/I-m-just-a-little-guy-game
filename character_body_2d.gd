@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 
-const SPEED = 700.0
+const SPEED = 600.0
 const JUMP_VELOCITY = -800.0
 
 
@@ -23,7 +23,7 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, 12)
+		velocity.x = move_toward(velocity.x, 1, 25)
 
 	move_and_slide()
 
