@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b3l2q2weyxvc5"]
+
+[ext_resource type="Texture2D" uid="uid://0lk6877nngeq" path="res://Movingroad.png" id="1_ta3ep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nx3u1"]
+size = Vector2(467, 153)
+
+[node name="MovingPlatform" type="Node2D" unique_id=741491569]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=470434172]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=2122773359]
+position = Vector2(267.8629, 117)
+scale = Vector2(0.62096775, 0.62096775)
+texture = ExtResource("1_ta3ep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1381454652]
+position = Vector2(269.5, 117)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_nx3u1")
