@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ch7mfeuaeshwv"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nytjc"]
+load_path = "res://.godot/imported/pixel-burrow-frame.png-bc7f03dce904e244d420ad497e862b24.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nx3u1"]
+size = Vector2(18, 14)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=125681460]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=514218990]
+texture = SubResource("CompressedTexture2D_nytjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=889409249]
+position = Vector2(9, -8)
+shape = SubResource("RectangleShape2D_nx3u1")
