@@ -4,7 +4,7 @@
 load_path = "res://.godot/imported/pixel-burrow-frame.png-bc7f03dce904e244d420ad497e862b24.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nx3u1"]
-size = Vector2(18, 14)
+size = Vector2(18, 11)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=125681460]
 
@@ -12,5 +12,5 @@ size = Vector2(18, 14)
 texture = SubResource("CompressedTexture2D_nytjc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=889409249]
-position = Vector2(9, -8)
+position = Vector2(9, -6.5)
 shape = SubResource("RectangleShape2D_nx3u1")
