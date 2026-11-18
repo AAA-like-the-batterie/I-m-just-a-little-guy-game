@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjrpgb0a7uwtl"
-path="res://.godot/imported/pixel-burrow-frame (2).png-109f85e33d3bcfee0ef0db3f4eb059d8.ctex"
+uid="uid://c5psmy4di1elf"
+path="res://.godot/imported/Scene.png-92f89896dadd1af7c79c54e8feccc466.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pixel-burrow-frame (2).png"
-dest_files=["res://.godot/imported/pixel-burrow-frame (2).png-109f85e33d3bcfee0ef0db3f4eb059d8.ctex"]
+source_file="res://scene/Scene.png"
+dest_files=["res://.godot/imported/Scene.png-92f89896dadd1af7c79c54e8feccc466.ctex"]
 
 [params]
 

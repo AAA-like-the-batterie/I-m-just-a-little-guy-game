@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Im just a little guy"
-run/main_scene="res://main.tscn"
+run/main_scene="uid://bc8uffyipwgrs"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[autoload]
+
+Leveltransition="*uid://c2816yd7hjp7e"
 
 [display]
 
