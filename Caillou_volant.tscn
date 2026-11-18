@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://g6vjfyhjhstl"]
+
+[ext_resource type="Texture2D" uid="uid://b88j4dj1stwmf" path="res://asset/Caillou.png" id="1_secwi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nx3u1"]
+radius = 72.1734
+
+[node name="Area2D" type="Area2D" unique_id=490198375]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=997243433]
+position = Vector2(270.00003, 132)
+scale = Vector2(0.14453128, 0.14453128)
+texture = ExtResource("1_secwi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1153265245]
+position = Vector2(279, 123)
+shape = SubResource("CircleShape2D_nx3u1")

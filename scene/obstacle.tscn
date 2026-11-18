@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://i2obk38h4tfs"]
 
-[ext_resource type="Texture2D" uid="uid://cm7rar3t68ypy" path="res://Baton.png" id="1_p1pd2"]
+[ext_resource type="Texture2D" uid="uid://cm7rar3t68ypy" path="res://asset/Baton.png" id="1_p1pd2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nx3u1"]
 radius = 3.6050396

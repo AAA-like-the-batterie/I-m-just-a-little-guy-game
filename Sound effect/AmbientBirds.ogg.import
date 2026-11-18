@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c0fuplwaa7634"
+path="res://.godot/imported/AmbientBirds.ogg-1689df33a4c2518dee53c74d8c81e0de.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sound effect/AmbientBirds.ogg"
+dest_files=["res://.godot/imported/AmbientBirds.ogg-1689df33a4c2518dee53c74d8c81e0de.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

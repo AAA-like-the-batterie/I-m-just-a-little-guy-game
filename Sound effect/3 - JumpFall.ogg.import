@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dhg85hdfrj4td"
+path="res://.godot/imported/3 - JumpFall.ogg-cf7188db2a1d1ccbf634bd71ca6ea21e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sound effect/3 - JumpFall.ogg"
+dest_files=["res://.godot/imported/3 - JumpFall.ogg-cf7188db2a1d1ccbf634bd71ca6ea21e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

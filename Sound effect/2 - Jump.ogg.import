@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dud1ldwb0lnky"
+path="res://.godot/imported/2 - Jump.ogg-b524c2565b96e6ad13a4d8923369ea4e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sound effect/2 - Jump.ogg"
+dest_files=["res://.godot/imported/2 - Jump.ogg-b524c2565b96e6ad13a4d8923369ea4e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

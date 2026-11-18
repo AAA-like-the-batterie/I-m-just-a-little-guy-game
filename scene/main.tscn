@@ -13,6 +13,10 @@
 [ext_resource type="Script" uid="uid://dsh12ewvy67kv" path="res://scene/obstacle.gd" id="11_k65ib"]
 [ext_resource type="PackedScene" uid="uid://dq2n05qvcgni2" path="res://caillou.tscn" id="12_mswub"]
 [ext_resource type="Script" uid="uid://rrtnhedv446d" path="res://caillou.gd" id="13_hybxs"]
+[ext_resource type="PackedScene" uid="uid://g6vjfyhjhstl" path="res://Caillou_volant.tscn" id="14_v2gmf"]
+[ext_resource type="Script" uid="uid://chf81kuyyiu1s" path="res://caillou_volant.gd" id="15_jcbur"]
+[ext_resource type="AudioStream" uid="uid://c0fuplwaa7634" path="res://Sound effect/AmbientBirds.ogg" id="16_jcbur"]
+[ext_resource type="AudioStream" uid="uid://dhg85hdfrj4td" path="res://Sound effect/3 - JumpFall.ogg" id="16_smf0o"]
 
 [sub_resource type="Animation" id="Animation_7mycd"]
 resource_name = "Goinguproad"
@@ -396,43 +400,6 @@ texture = ExtResource("7_v2gmf")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lquwl")
 
-[sub_resource type="GDScript" id="GDScript_1bvp3"]
-script/source = "extends CharacterBody2D
-
-
-const SPEED = 350.0
-const JUMP_VELOCITY = -650.0
-
-
-
-func respawn ():
-	self.global_position = Vector2(0, 0)
-func _physics_process(delta: float) -> void:
-	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed(\"Jump\") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis(\"Left\", \"Right\")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
-	global_position = global_position.round()
-	print(global_position)
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v26cs"]
-size = Vector2(328.83392, 588.4397)
-
 [sub_resource type="Animation" id="Animation_mswub"]
 resource_name = "Moviiing_road"
 length = 4.0
@@ -471,24 +438,45 @@ _data = {
 &"RESET": SubResource("Animation_hybxs")
 }
 
-[sub_resource type="Animation" id="Animation_v2gmf"]
-resource_name = "Movingroooooad"
-length = 4.0
+[sub_resource type="Animation" id="Animation_smf0o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatableBody2D5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6608.0005, -1666)]
+}
+
+[sub_resource type="Animation" id="Animation_tv8i1"]
+resource_name = "moving"
+length = 3.0000000000000004
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("../AnimatableBody2D5:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 3),
+"times": PackedFloat32Array(1, 1.9666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(5891, -1631.0001), Vector2(5891, -2524)]
+"values": [Vector2(6619, -1973), Vector2(7399, -1972.9999)]
 }
 
-[sub_resource type="Animation" id="Animation_jcbur"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0vlqb"]
+_data = {
+&"RESET": SubResource("Animation_smf0o"),
+&"moving": SubResource("Animation_tv8i1")
+}
+
+[sub_resource type="Animation" id="Animation_v2gmf"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -500,14 +488,107 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(5891, -2017)]
+"values": [Vector2(6109, -1972.9999)]
+}
+
+[sub_resource type="Animation" id="Animation_jcbur"]
+resource_name = "new_animation"
+length = 7.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.0333333, 5.0333333),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(7410, -1973), Vector2(6024.0005, -1972.9999)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_smf0o"]
 _data = {
-&"Movingroooooad": SubResource("Animation_v2gmf"),
-&"RESET": SubResource("Animation_jcbur")
+&"RESET": SubResource("Animation_v2gmf"),
+&"new_animation": SubResource("Animation_jcbur")
 }
+
+[sub_resource type="Animation" id="Animation_gjnwh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7837.0005, -1971)]
+}
+
+[sub_resource type="Animation" id="Animation_fdqew"]
+resource_name = "new_animation"
+length = 7.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 5.0333333),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(7734, -1971), Vector2(9150, -1971)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0d4pv"]
+_data = {
+&"RESET": SubResource("Animation_gjnwh"),
+&"new_animation": SubResource("Animation_fdqew")
+}
+
+[sub_resource type="GDScript" id="GDScript_1bvp3"]
+script/source = "extends CharacterBody2D
+
+@onready var Sfx_jump = $Sfx_jump
+const SPEED = 350.0
+const JUMP_VELOCITY = -650.0
+
+
+
+func respawn ():
+	self.global_position = Vector2(0, 0)
+func _physics_process(delta: float) -> void:
+	
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"Jump\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		Sfx_jump.play()
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"Left\", \"Right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	move_and_slide()
+	global_position = global_position.round()
+	
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v26cs"]
+size = Vector2(328.83392, 588.4397)
 
 [node name="Node" type="Node" unique_id=1351076607]
 
@@ -581,7 +662,7 @@ autoplay = &"Moving road"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=774867939]
 scale = Vector2(6, 6)
-tile_map_data = PackedByteArray("AAASAP7/AAAAAAEAAAATAP7/AAAAAAEAAAAWAPz/AAAAAAEAAAAXAPz/AAAAAAEAAAAaAPr/AAAAAAEAAAAbAPr/AAAAAAEAAAASAP//AAAAAAIAAAAWAP3/AAAAAAIAAAAXAP3/AAABAAIAAAAaAPv/AAAAAAIAAAAbAPv/AAABAAIAAAATAAAAAAABAAMAAAASAAEAAAAAAAMAAAATAAEAAAABAAMAAAASAAIAAAAAAAMAAAATAAIAAAABAAMAAAATAAMAAAABAAQAAAASAAQAAAAEAAcAAAATAAQAAAAFAAcAAAAWAP7/AAAAAAMAAAAXAP//AAABAAMAAAAWAAAAAAAAAAMAAAAXAAAAAAABAAMAAAAWAAEAAAAAAAMAAAAXAAEAAAABAAMAAAAWAAIAAAAAAAMAAAAXAAIAAAABAAMAAAAWAAMAAAAAAAQAAAAXAAMAAAABAAQAAAAWAAQAAAAEAAcAAAAXAAQAAAAFAAcAAAASAAMAAAAAAAQAAAAXAP7/AAABAAMAAAAWAP//AAAAAAMAAAATAP//AAABAAIAAAASAAAAAAAAAAMAAAD//wAAAAAAAAEAAAD//wEAAAAAAAIAAAD//wIAAAAAAAMAAAD//wMAAAAAAAQAAAD//wQAAAAEAAcAAAAAAAAAAAABAAEAAAAAAAEAAAABAAIAAAAAAAIAAAABAAMAAAAAAAMAAAABAAQAAAAAAAQAAAAFAAcAAAABAAAAAAACAAEAAAABAAEAAAACAAIAAAABAAIAAAACAAMAAAABAAMAAAACAAQAAAABAAQAAAAEAAcAAAACAAAAAAADAAEAAAACAAEAAAADAAIAAAACAAIAAAADAAMAAAACAAMAAAADAAQAAAACAAQAAAAFAAcAAAADAAAAAAAEAAEAAAADAAEAAAAEAAIAAAADAAIAAAAEAAMAAAADAAMAAAAEAAQAAAAEAAAAAAAFAAEAAAAEAAEAAAAFAAIAAAAEAAIAAAAFAAMAAAAEAAMAAAAFAAQAAAAFAAAAAAAGAAEAAAAFAAEAAAAAAAIAAAAFAAIAAAAGAAMAAAAFAAMAAAAGAAQAAAAGAAAAAAAHAAEAAAAGAAEAAAABAAIAAAAGAAIAAAAHAAMAAAAGAAMAAAAHAAQAAAAHAAAAAAAIAAEAAAAHAAEAAAACAAIAAAAHAAIAAAAAAAMAAAAHAAMAAAAIAAQAAAAIAAAAAAAJAAEAAAAIAAEAAAADAAIAAAAIAAIAAAABAAMAAAAIAAMAAAAJAAQAAAAJAAAAAAAKAAEAAAAJAAEAAAAEAAIAAAAJAAIAAAACAAMAAAAJAAMAAAAKAAQAAAAKAAAAAAALAAEAAAAKAAEAAAAFAAIAAAAKAAIAAAADAAMAAAAKAAMAAAAAAAQAAAALAAAAAAAMAAEAAAALAAEAAAAGAAIAAAALAAIAAAAEAAMAAAALAAMAAAABAAQAAAALAAQAAAAEAAcAAAAMAAAAAAANAAEAAAAMAAEAAAAHAAIAAAAMAAIAAAAFAAMAAAAMAAMAAAAAAAQAAAAMAAQAAAAFAAcAAAANAAAAAAAOAAEAAAANAAEAAAAGAAIAAAANAAIAAAAGAAMAAAANAAMAAAABAAQAAAANAAQAAAAEAAcAAAAOAAAAAAAPAAEAAAAOAAEAAAAHAAIAAAAOAAIAAAAHAAMAAAAOAAMAAAACAAQAAAAOAAQAAAAFAAcAAAADAAQAAAAEAAcAAAAEAAQAAAAFAAcAAAAFAAQAAAAEAAcAAAAGAAQAAAAFAAcAAAAHAAQAAAAEAAcAAAAIAAQAAAAFAAcAAAAJAAQAAAAEAAcAAAAKAAQAAAAFAAcAAAAaAPz/AAABAAMAAAAbAPz/AAACAAMAAAAaAP3/AAABAAMAAAAbAP3/AAACAAMAAAAaAP7/AAABAAMAAAAbAP7/AAACAAMAAAAaAP//AAABAAMAAAAbAP//AAACAAMAAAAaAAAAAAABAAMAAAAbAAAAAAACAAMAAAAaAAEAAAADAAQAAAAbAAEAAAAEAAQAAAAaAAIAAAADAAYAAAAbAAIAAAAEAAYAAAAaAAMAAAADAAYAAAAbAAMAAAAEAAYAAAAaAAQAAAAEAAcAAAAbAAQAAAAFAAcAAAA=")
+tile_map_data = PackedByteArray("AAASAP7/AAAAAAEAAAATAP7/AAAAAAEAAAAWAPz/AAAAAAEAAAAXAPz/AAAAAAEAAAAaAPr/AAAAAAEAAAAbAPr/AAAAAAEAAAASAP//AAAAAAIAAAAWAP3/AAAAAAIAAAAXAP3/AAABAAIAAAAaAPv/AAAAAAIAAAAbAPv/AAABAAIAAAATAAAAAAABAAMAAAASAAEAAAAAAAMAAAATAAEAAAABAAMAAAASAAIAAAAAAAMAAAATAAIAAAABAAMAAAATAAMAAAABAAQAAAASAAQAAAAEAAcAAAATAAQAAAAFAAcAAAAWAP7/AAAAAAMAAAAXAP//AAABAAMAAAAWAAAAAAAAAAMAAAAXAAAAAAABAAMAAAAWAAEAAAAAAAMAAAAXAAEAAAABAAMAAAAWAAIAAAAAAAMAAAAXAAIAAAABAAMAAAAWAAMAAAAAAAQAAAAXAAMAAAABAAQAAAAWAAQAAAAEAAcAAAAXAAQAAAAFAAcAAAASAAMAAAAAAAQAAAAXAP7/AAABAAMAAAAWAP//AAAAAAMAAAATAP//AAABAAIAAAASAAAAAAAAAAMAAAD//wAAAAAAAAEAAAD//wEAAAAAAAIAAAD//wIAAAAAAAMAAAD//wMAAAAAAAQAAAD//wQAAAAEAAcAAAAAAAAAAAABAAEAAAAAAAEAAAABAAIAAAAAAAIAAAABAAMAAAAAAAMAAAABAAQAAAAAAAQAAAAFAAcAAAABAAAAAAACAAEAAAABAAEAAAACAAIAAAABAAIAAAACAAMAAAABAAMAAAACAAQAAAABAAQAAAAEAAcAAAACAAAAAAADAAEAAAACAAEAAAADAAIAAAACAAIAAAADAAMAAAACAAMAAAADAAQAAAACAAQAAAAFAAcAAAADAAAAAAAEAAEAAAADAAEAAAAEAAIAAAADAAIAAAAEAAMAAAADAAMAAAAEAAQAAAAEAAAAAAAFAAEAAAAEAAEAAAAFAAIAAAAEAAIAAAAFAAMAAAAEAAMAAAAFAAQAAAAFAAAAAAAGAAEAAAAFAAEAAAAAAAIAAAAFAAIAAAAGAAMAAAAFAAMAAAAGAAQAAAAGAAAAAAAHAAEAAAAGAAEAAAABAAIAAAAGAAIAAAAHAAMAAAAGAAMAAAAHAAQAAAAHAAAAAAAIAAEAAAAHAAEAAAACAAIAAAAHAAIAAAAAAAMAAAAHAAMAAAAIAAQAAAAIAAAAAAAJAAEAAAAIAAEAAAADAAIAAAAIAAIAAAABAAMAAAAIAAMAAAAJAAQAAAAJAAAAAAAKAAEAAAAJAAEAAAAEAAIAAAAJAAIAAAACAAMAAAAJAAMAAAAKAAQAAAAKAAAAAAALAAEAAAAKAAEAAAAFAAIAAAAKAAIAAAADAAMAAAAKAAMAAAAAAAQAAAALAAAAAAAMAAEAAAALAAEAAAAGAAIAAAALAAIAAAAEAAMAAAALAAMAAAABAAQAAAALAAQAAAAEAAcAAAAMAAAAAAANAAEAAAAMAAEAAAAHAAIAAAAMAAIAAAAFAAMAAAAMAAMAAAAAAAQAAAAMAAQAAAAFAAcAAAANAAAAAAAOAAEAAAANAAEAAAAGAAIAAAANAAIAAAAGAAMAAAANAAMAAAABAAQAAAANAAQAAAAEAAcAAAAOAAAAAAAPAAEAAAAOAAEAAAAHAAIAAAAOAAIAAAAHAAMAAAAOAAMAAAACAAQAAAAOAAQAAAAFAAcAAAADAAQAAAAEAAcAAAAEAAQAAAAFAAcAAAAFAAQAAAAEAAcAAAAGAAQAAAAFAAcAAAAHAAQAAAAEAAcAAAAIAAQAAAAFAAcAAAAJAAQAAAAEAAcAAAAKAAQAAAAFAAcAAAAaAPz/AAABAAMAAAAbAPz/AAACAAMAAAAaAP3/AAABAAMAAAAbAP3/AAACAAMAAAAaAP7/AAABAAMAAAAbAP7/AAACAAMAAAAaAP//AAABAAMAAAAbAP//AAACAAMAAAAaAAAAAAABAAMAAAAbAAAAAAACAAMAAAAaAAEAAAADAAQAAAAbAAEAAAAEAAQAAAAaAAIAAAADAAYAAAAbAAIAAAAEAAYAAAAaAAMAAAADAAYAAAAbAAMAAAAEAAYAAAAaAAQAAAAEAAcAAAAbAAQAAAAFAAcAAABkAOv/AAABAAIAAABkAOz/AAABAAMAAABkAO3/AAAEAAMAAABlAOv/AAACAAIAAABlAOz/AAACAAMAAABlAO3/AAADAAMAAABmAOv/AAADAAIAAABmAOz/AAADAAMAAABmAO3/AAAEAAMAAABkAO7/AAAEAAMAAABlAO7/AAADAAMAAABmAO7/AAAEAAMAAABnAOz/AAAAAAIAAABnAO3/AAAAAAMAAABnAO7/AAADAAMAAABoAOz/AAABAAIAAABoAO3/AAABAAMAAABoAO7/AAAEAAMAAABpAOz/AAACAAIAAABpAO3/AAACAAMAAABpAO7/AAADAAMAAABqAO7/AAACAAMAAABjAO3/AAADAAMAAABjAO7/AAADAAMAAABjAOz/AAAAAAIAAABqAO3/AAADAAIAAABrAO3/AAAEAAIAAABsAO3/AAAFAAIAAABrAO7/AAADAAMAAABsAO7/AAAEAAMAAABtAO7/AAADAAIAAABuAO7/AAAEAAIAAABvAO7/AAAFAAIAAABwAO7/AAADAAIAAABxAO7/AAAEAAIAAAByAO7/AAAFAAIAAABzAO7/AAADAAIAAAB0AO7/AAAEAAIAAAB1AO7/AAAFAAIAAABgAO3/AAAAAAIAAABgAO7/AAAAAAMAAABhAO3/AAABAAIAAABhAO7/AAABAAMAAABiAO3/AAACAAIAAABiAO7/AAACAAMAAABeAO3/AAADAAIAAABeAO7/AAADAAMAAABfAO3/AAAEAAIAAABfAO7/AAAEAAMAAABeAO//AAAAAAMAAABeAPD/AAAAAAMAAABeAPH/AAAAAAQAAABfAO//AAABAAMAAABfAPD/AAABAAMAAABfAPH/AAABAAQAAABgAO//AAACAAMAAABgAPD/AAACAAMAAABgAPH/AAACAAQAAABhAO//AAADAAMAAABhAPD/AAADAAMAAABhAPH/AAADAAQAAABiAO//AAAEAAMAAABiAPD/AAAEAAMAAABiAPH/AAAEAAQAAABjAO//AAAFAAMAAABjAPD/AAAFAAMAAABjAPH/AAAFAAQAAABkAO//AAAGAAMAAABkAPD/AAAGAAMAAABkAPH/AAAGAAQAAABlAO//AAAHAAMAAABlAPD/AAAHAAMAAABlAPH/AAAHAAQAAABmAO//AAAAAAMAAABmAPD/AAAAAAMAAABmAPH/AAAAAAQAAABnAO//AAABAAMAAABnAPD/AAABAAMAAABnAPH/AAABAAQAAABoAO//AAACAAMAAABoAPD/AAACAAMAAABoAPH/AAACAAQAAABpAO//AAADAAMAAABpAPD/AAADAAMAAABpAPH/AAADAAQAAABqAO//AAAEAAMAAABqAPD/AAAEAAMAAABqAPH/AAAEAAQAAABrAO//AAAFAAMAAABrAPD/AAAFAAMAAABrAPH/AAAFAAQAAABsAO//AAAGAAMAAABsAPD/AAAGAAMAAABsAPH/AAAGAAQAAABtAO//AAAHAAMAAABtAPD/AAAHAAMAAABtAPH/AAAHAAQAAABuAO//AAAIAAMAAABuAPD/AAAIAAMAAABuAPH/AAAIAAQAAABvAO//AAAJAAMAAABvAPD/AAAJAAMAAABvAPH/AAAJAAQAAABwAO//AAAKAAMAAABwAPD/AAAKAAMAAABwAPH/AAAKAAQAAABxAO//AAALAAMAAABxAPD/AAALAAMAAABxAPH/AAALAAQAAAByAO//AAAMAAMAAAByAPD/AAAMAAMAAAByAPH/AAAMAAQAAABzAO//AAANAAMAAABzAPD/AAANAAMAAABzAPH/AAANAAQAAAB0AO//AAAOAAMAAAB0APD/AAAOAAMAAAB0APH/AAAOAAQAAAB1AO//AAAPAAMAAAB1APD/AAAPAAMAAAB1APH/AAAPAAQAAABeAPL/AAAAAAYAAABeAPP/AAAAAAcAAABfAPL/AAABAAYAAABfAPP/AAABAAcAAABgAPL/AAACAAYAAABgAPP/AAACAAcAAABhAPL/AAADAAYAAABhAPP/AAADAAcAAABiAPL/AAAEAAYAAABiAPP/AAAEAAcAAABjAPL/AAAFAAYAAABjAPP/AAAFAAcAAABkAPL/AAAGAAYAAABkAPP/AAAGAAcAAABlAPL/AAAHAAYAAABlAPP/AAAHAAcAAABmAPL/AAAAAAYAAABmAPP/AAAAAAcAAABnAPL/AAABAAYAAABnAPP/AAABAAcAAABoAPL/AAACAAYAAABoAPP/AAACAAcAAABpAPL/AAADAAYAAABpAPP/AAADAAcAAABqAPL/AAAEAAYAAABqAPP/AAAEAAcAAABrAPL/AAAFAAYAAABrAPP/AAAFAAcAAABsAPL/AAAGAAYAAABsAPP/AAAGAAcAAABtAPL/AAAHAAYAAABtAPP/AAAHAAcAAABuAPL/AAAIAAYAAABuAPP/AAAIAAcAAABvAPL/AAAJAAYAAABvAPP/AAAJAAcAAABwAPL/AAAKAAYAAABwAPP/AAAKAAcAAABxAPL/AAALAAYAAABxAPP/AAALAAcAAAByAPL/AAAMAAYAAAByAPP/AAAMAAcAAABzAPL/AAANAAYAAABzAPP/AAANAAcAAAB0APL/AAAOAAYAAAB0APP/AAAOAAcAAAB1APL/AAAPAAYAAAB1APP/AAAPAAcAAAA=")
 tile_set = SubResource("TileSet_nx3u1")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=904308263]
@@ -589,28 +670,6 @@ position = Vector2(237, -472.00003)
 scale = Vector2(6, 6)
 tile_map_data = PackedByteArray("AAAvAPf/AQABAAAAAAAvAPj/AQABAAEAAAAkAPr/AQABAAAAAAAkAPv/AQABAAEAAAAnAPj/AQABAAAAAAAnAPn/AQABAAEAAAArAPj/AQABAAAAAAArAPn/AQABAAEAAAAzAPb/AQABAAAAAAAzAPf/AQABAAEAAAA=")
 tile_set = SubResource("TileSet_v26cs")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1576038607]
-position = Vector2(2, 0)
-script = SubResource("GDScript_1bvp3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1064830645]
-position = Vector2(23, 26.000002)
-scale = Vector2(0.11555985, 0.11555985)
-shape = SubResource("RectangleShape2D_v26cs")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1137201319]
-position = Vector2(25, 30)
-scale = Vector2(0.04801432, 0.04801432)
-texture = ExtResource("8_jcbur")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1604324833]
-position = Vector2(-1, 1)
-position_smoothing_enabled = true
-position_smoothing_speed = 4.0
-
-[node name="sfx_jumping_start" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=1491887707]
 
 [node name="Killzone" parent="." unique_id=856986154 instance=ExtResource("9_smf0o")]
 position = Vector2(-2328, -1038)
@@ -635,12 +694,63 @@ libraries/ = SubResource("AnimationLibrary_v2gmf")
 autoplay = &"Moviiing_road"
 
 [node name="AnimatableBody2D4" parent="." unique_id=443164991 instance=ExtResource("5_mswub")]
-position = Vector2(5891, -2017)
+position = Vector2(5891, -1946.0001)
 scale = Vector2(7, 7)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D4" unique_id=1943933511]
+[node name="Caillou_volant" parent="." unique_id=490198375 instance=ExtResource("14_v2gmf")]
+position = Vector2(7362, -2229)
+script = ExtResource("15_jcbur")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Caillou_volant" unique_id=877096411]
+libraries/ = SubResource("AnimationLibrary_0vlqb")
+autoplay = &"moving"
+
+[node name="AnimatableBody2D5" parent="." unique_id=518983325 instance=ExtResource("5_mswub")]
+position = Vector2(6109, -1972.9999)
+scale = Vector2(7, 7)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D5" unique_id=1849260128]
 libraries/ = SubResource("AnimationLibrary_smf0o")
-autoplay = &"Movingroooooad"
+autoplay = &"new_animation"
+
+[node name="AnimatableBody2D6" parent="." unique_id=713437456 instance=ExtResource("5_mswub")]
+position = Vector2(7837.0005, -1971)
+scale = Vector2(7, 7)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D6" unique_id=1249954603]
+libraries/ = SubResource("AnimationLibrary_0d4pv")
+autoplay = &"new_animation"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1576038607]
+position = Vector2(2, 0)
+script = SubResource("GDScript_1bvp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1064830645]
+position = Vector2(23, 26.000002)
+scale = Vector2(0.11555985, 0.11555985)
+shape = SubResource("RectangleShape2D_v26cs")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1137201319]
+position = Vector2(25, 30)
+scale = Vector2(0.04801432, 0.04801432)
+texture = ExtResource("8_jcbur")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1604324833]
+position = Vector2(-1, 1)
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="Sfx_jump" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=1760158358]
+stream = ExtResource("16_smf0o")
+volume_db = 6.0
+
+[node name="Background_noise" type="AudioStreamPlayer" parent="." unique_id=657607908]
+stream = ExtResource("16_jcbur")
+volume_db = 4.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Caillou" to="Caillou" method="_on_body_entered"]
+[connection signal="body_entered" from="Caillou_volant" to="Caillou_volant" method="_on_body_entered"]

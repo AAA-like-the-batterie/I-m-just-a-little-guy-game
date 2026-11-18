@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1y16gbiircsi"
-path="res://.godot/imported/Caillou2.png-50debbad2439ecfdb91cd0b15976c685.ctex"
+path="res://.godot/imported/Caillou2.png-0db247be67dfb16c2d2902ae7b9b5393.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Caillou2.png"
-dest_files=["res://.godot/imported/Caillou2.png-50debbad2439ecfdb91cd0b15976c685.ctex"]
+source_file="res://asset/Caillou2.png"
+dest_files=["res://.godot/imported/Caillou2.png-0db247be67dfb16c2d2902ae7b9b5393.ctex"]
 
 [params]
 
