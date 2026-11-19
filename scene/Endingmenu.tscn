@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://crmcf4ubk26q2"]
+
+[ext_resource type="Texture2D" uid="uid://baac03mj3yuai" path="res://Background/Scene (2).png" id="1_o0k4u"]
+[ext_resource type="Texture2D" uid="uid://c5psmy4di1elf" path="res://tileset/Scene.png" id="2_jmdsh"]
+
+[node name="Node" type="Node" unique_id=2116598050]
+
+[node name="Scene(2)" type="Sprite2D" parent="." unique_id=1730824396]
+position = Vector2(562, 317)
+scale = Vector2(1.1670563, 1.583013)
+texture = ExtResource("1_o0k4u")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1399293567]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -323.0
+offset_right = 323.0
+offset_bottom = 172.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 125
+text = "YOU WIN !"
+
+[node name="Scene" type="Sprite2D" parent="." unique_id=866011064]
+position = Vector2(557, 869)
+scale = Vector2(4.890625, 4.8541665)
+texture = ExtResource("2_jmdsh")
+
+[node name="Button" type="Button" parent="." unique_id=1319938446]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -42.0
+offset_right = 94.5
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "Try again ?"

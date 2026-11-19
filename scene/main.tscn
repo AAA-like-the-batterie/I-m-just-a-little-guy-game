@@ -5,18 +5,19 @@
 [ext_resource type="Texture2D" uid="uid://dus6ccclib0om" path="res://Background/Lampe.png" id="3_k65ib"]
 [ext_resource type="Texture2D" uid="uid://bjnrdbvmirvvs" path="res://Background/Littlelamp.png" id="4_wscrc"]
 [ext_resource type="PackedScene" uid="uid://ch7mfeuaeshwv" path="res://scene/Movingroad.tscn" id="5_mswub"]
-[ext_resource type="Texture2D" uid="uid://c5psmy4di1elf" path="res://scene/Scene.png" id="6_hybxs"]
-[ext_resource type="Texture2D" uid="uid://c0pa54ywjr7b7" path="res://scene/pixel-burrow-frame (1).png" id="7_v2gmf"]
-[ext_resource type="Texture2D" uid="uid://dhnduijd6phhv" path="res://Joueurfinaaaale.png" id="8_jcbur"]
-[ext_resource type="PackedScene" uid="uid://cduwmj7eo5c0b" path="res://killzone.tscn" id="9_smf0o"]
+[ext_resource type="Texture2D" uid="uid://c5psmy4di1elf" path="res://tileset/Scene.png" id="6_hybxs"]
+[ext_resource type="Texture2D" uid="uid://c0pa54ywjr7b7" path="res://tileset/pixel-burrow-frame (1).png" id="7_v2gmf"]
+[ext_resource type="Texture2D" uid="uid://dhnduijd6phhv" path="res://asset/Joueurfinaaaale.png" id="8_jcbur"]
+[ext_resource type="PackedScene" uid="uid://cduwmj7eo5c0b" path="res://scene/killzone.tscn" id="9_smf0o"]
 [ext_resource type="PackedScene" uid="uid://i2obk38h4tfs" path="res://scene/obstacle.tscn" id="10_tqoya"]
-[ext_resource type="Script" uid="uid://dsh12ewvy67kv" path="res://scene/obstacle.gd" id="11_k65ib"]
-[ext_resource type="PackedScene" uid="uid://dq2n05qvcgni2" path="res://caillou.tscn" id="12_mswub"]
-[ext_resource type="Script" uid="uid://rrtnhedv446d" path="res://caillou.gd" id="13_hybxs"]
-[ext_resource type="PackedScene" uid="uid://g6vjfyhjhstl" path="res://Caillou_volant.tscn" id="14_v2gmf"]
-[ext_resource type="Script" uid="uid://chf81kuyyiu1s" path="res://caillou_volant.gd" id="15_jcbur"]
+[ext_resource type="Script" uid="uid://dsh12ewvy67kv" path="res://Script/obstacle.gd" id="11_k65ib"]
+[ext_resource type="PackedScene" uid="uid://dq2n05qvcgni2" path="res://scene/caillou.tscn" id="12_mswub"]
+[ext_resource type="Script" uid="uid://rrtnhedv446d" path="res://Script/caillou.gd" id="13_hybxs"]
+[ext_resource type="PackedScene" uid="uid://g6vjfyhjhstl" path="res://scene/Caillou_volant.tscn" id="14_v2gmf"]
+[ext_resource type="Script" uid="uid://chf81kuyyiu1s" path="res://Script/caillou_volant.gd" id="15_jcbur"]
 [ext_resource type="AudioStream" uid="uid://c0fuplwaa7634" path="res://Sound effect/AmbientBirds.ogg" id="16_jcbur"]
 [ext_resource type="AudioStream" uid="uid://dhg85hdfrj4td" path="res://Sound effect/3 - JumpFall.ogg" id="16_smf0o"]
+[ext_resource type="PackedScene" uid="uid://s1n5c1l07jrl" path="res://scene/Ending.tscn" id="18_tv8i1"]
 
 [sub_resource type="Animation" id="Animation_7mycd"]
 resource_name = "Goinguproad"
@@ -67,10 +68,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 3),
+"times": PackedFloat32Array(1, 3.03),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(2691, -424.99997), Vector2(3179, -424.99997)]
+"values": [Vector2(2691, -424.99997), Vector2(3255.9995, -424.99997)]
 }
 
 [sub_resource type="Animation" id="Animation_lquwl"]
@@ -402,7 +403,7 @@ sources/1 = SubResource("TileSetAtlasSource_lquwl")
 
 [sub_resource type="Animation" id="Animation_mswub"]
 resource_name = "Moviiing_road"
-length = 4.0
+length = 6.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -411,10 +412,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.04, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.05, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(5368.0005, -1040), Vector2(5368.0005, -1908)]
+"values": [Vector2(5368.0005, -1343.6055), Vector2(5368.0005, -1042.8678), Vector2(5368, -1935), Vector2(5368.0005, -1343.6055)]
 }
 
 [sub_resource type="Animation" id="Animation_hybxs"]
@@ -694,7 +695,7 @@ libraries/ = SubResource("AnimationLibrary_v2gmf")
 autoplay = &"Moviiing_road"
 
 [node name="AnimatableBody2D4" parent="." unique_id=443164991 instance=ExtResource("5_mswub")]
-position = Vector2(5891, -1946.0001)
+position = Vector2(5799, -1946)
 scale = Vector2(7, 7)
 
 [node name="Caillou_volant" parent="." unique_id=490198375 instance=ExtResource("14_v2gmf")]
@@ -737,11 +738,14 @@ scale = Vector2(0.04801432, 0.04801432)
 texture = ExtResource("8_jcbur")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1604324833]
-position = Vector2(-1, 1)
+position = Vector2(-1, 41)
+zoom = Vector2(1.5, 1.5)
+limit_right = 10000001
 position_smoothing_enabled = true
-position_smoothing_speed = 4.0
+position_smoothing_speed = 7.0
 
 [node name="Sfx_jump" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=1760158358]
+position = Vector2(-1, 4)
 stream = ExtResource("16_smf0o")
 volume_db = 6.0
 
@@ -750,6 +754,10 @@ stream = ExtResource("16_jcbur")
 volume_db = 4.0
 autoplay = true
 parameters/looping = true
+
+[node name="Area2D2" parent="." unique_id=246152114 instance=ExtResource("18_tv8i1")]
+position = Vector2(10871, -1738)
+scale = Vector2(4, 4)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Caillou" to="Caillou" method="_on_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://s1n5c1l07jrl"]
+
+[ext_resource type="Script" uid="uid://tl6y11h3oxhj" path="res://Script/area_2d.gd" id="1_jkr2r"]
+[ext_resource type="Texture2D" uid="uid://dus6ccclib0om" path="res://Background/Lampe.png" id="2_v0lf2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nx3u1"]
+height = 222.0
+
+[node name="Area2D" type="Area2D" unique_id=246152114]
+script = ExtResource("1_jkr2r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1685300019]
+position = Vector2(25, -97)
+shape = SubResource("CapsuleShape2D_nx3u1")
+
+[node name="Lampe" type="Sprite2D" parent="." unique_id=155456378]
+position = Vector2(447.99997, -275)
+scale = Vector2(0.97924644, 1.2540157)
+texture = ExtResource("2_v0lf2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

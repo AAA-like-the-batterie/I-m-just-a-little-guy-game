@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0pa54ywjr7b7"
-path="res://.godot/imported/pixel-burrow-frame (1).png-18d75f8418408881aa7887362aba886c.ctex"
+path="res://.godot/imported/pixel-burrow-frame (1).png-05d1aaed85f313981aeab47f3abb0057.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/pixel-burrow-frame (1).png"
-dest_files=["res://.godot/imported/pixel-burrow-frame (1).png-18d75f8418408881aa7887362aba886c.ctex"]
+source_file="res://tileset/pixel-burrow-frame (1).png"
+dest_files=["res://.godot/imported/pixel-burrow-frame (1).png-05d1aaed85f313981aeab47f3abb0057.ctex"]
 
 [params]
 

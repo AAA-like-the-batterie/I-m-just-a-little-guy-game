@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ck3x4mybgwqx7"]
 
-[ext_resource type="Script" uid="uid://dupd61cukfrrq" path="res://scene/menue.gd" id="1_g2cvu"]
+[ext_resource type="Script" uid="uid://dupd61cukfrrq" path="res://Script/menue.gd" id="1_g2cvu"]
+[ext_resource type="Texture2D" uid="uid://c5psmy4di1elf" path="res://tileset/Scene.png" id="2_4jsbt"]
 
 [node name="Control" type="Control" unique_id=1325419568]
 layout_mode = 3
@@ -17,22 +18,7 @@ offset_left = -241.0
 offset_top = -178.0
 offset_right = 1391.0
 offset_bottom = 824.0
-color = Color(0.36114228, 0.526314, 0.656659, 1)
-
-[node name="Button" type="Button" parent="." unique_id=1524719786]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -49.0
-offset_right = 162.0
-offset_bottom = 49.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "START"
+color = Color(0.40392157, 0.7529412, 0.8784314, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1100110811]
 layout_mode = 1
@@ -46,5 +32,25 @@ offset_bottom = 237.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 70
 text = "I'M JUST A LITTLE GUY."
+
+[node name="Scene" type="Sprite2D" parent="." unique_id=1894569043]
+position = Vector2(574.49994, 955.99994)
+scale = Vector2(6.3867188, 6.4062505)
+texture = ExtResource("2_4jsbt")
+
+[node name="Button" type="Button" parent="." unique_id=197754861]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -56.0
+offset_right = 101.064514
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

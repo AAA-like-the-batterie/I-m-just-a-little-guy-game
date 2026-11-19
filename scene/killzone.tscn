@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cduwmj7eo5c0b"]
 
-[ext_resource type="Script" uid="uid://c5jdigc6v1v03" path="res://killzone.gd" id="1_klnym"]
+[ext_resource type="Script" uid="uid://c5jdigc6v1v03" path="res://Script/killzone.gd" id="1_klnym"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nx3u1"]
 distance = -6.0
