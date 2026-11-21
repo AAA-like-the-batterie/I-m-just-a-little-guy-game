@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://crmcf4ubk26q2"]
 
+[ext_resource type="Script" uid="uid://bmii6ui131sdd" path="res://scene/endingmenu.gd" id="1_jmdsh"]
 [ext_resource type="Texture2D" uid="uid://baac03mj3yuai" path="res://Background/Scene (2).png" id="1_o0k4u"]
-[ext_resource type="Texture2D" uid="uid://c5psmy4di1elf" path="res://tileset/Scene.png" id="2_jmdsh"]
+[ext_resource type="Texture2D" uid="uid://c5psmy4di1elf" path="res://tileset/Scene.png" id="3_snx34"]
 
 [node name="Node" type="Node" unique_id=2116598050]
+script = ExtResource("1_jmdsh")
 
 [node name="Scene(2)" type="Sprite2D" parent="." unique_id=1730824396]
 position = Vector2(562, 317)
@@ -24,7 +26,7 @@ text = "YOU WIN !"
 [node name="Scene" type="Sprite2D" parent="." unique_id=866011064]
 position = Vector2(557, 869)
 scale = Vector2(4.890625, 4.8541665)
-texture = ExtResource("2_jmdsh")
+texture = ExtResource("3_snx34")
 
 [node name="Button" type="Button" parent="." unique_id=1319938446]
 anchors_preset = 8
@@ -40,3 +42,5 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 16
 text = "Try again ?"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

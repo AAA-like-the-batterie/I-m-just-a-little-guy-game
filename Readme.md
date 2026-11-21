@@ -4,9 +4,12 @@
 
 # What does it do ?
 
-Well it's a video game... More seriously, it's a platformer ; you're playing a little guy who just want to go home...But the road have quite change...
+Well it's a video game... More seriously, it's a platformer ; you're playing a little guy who just want to go home...But the road have quite change... ( but I still didn't add the story on the game T-T).
 
 For now there's one level, but I know I'll add other level too.*
+
+<img src="screenshot/Imagejeu.png" alt="Screenshot of the game" width="70%" >
+
 
 # What did I use ?
 
@@ -16,7 +19,7 @@ Oof, a lot of things actually !
 
 - **Pxlated** to make *most* of the asset of the game : Most people use Aesprite ( but I don't have the moneyyyy) or Libresprite ( but I had soo much difficulty making Tileset because I was *beginner*, but I did use it for making the player). So I've found **Pxlated** accidentaly on itch.io, they have an integrated tileset tool ! So does Aesprite is I remember correctly...
 
-- **Itch.io** to import the sfx sound : As you may (not) know, I'm not a sound artist lol, so I've used free sfx sound on itch.io, here are the link and credits :
+- **Itch.io** to import the sfx sound : As you may (not) know, I'm not a sound artist lol, so I've used free sfx sound on itch.io ( but I can't find who did it T-T).
 
 - **Youtube** to learn most of the things I've added : Moving platform, main menu, how to add a background, etc..
 
@@ -30,7 +33,7 @@ To run this project on your device, well you need a few things :
 
 - **Godot**, especially the *( 4.7) version*
 - **A laptop** : it may sound dumb, but as far as I know, I don't think you can dowlad this app on a phone devicies.
-- **And pastience** : you'll need it.
+- **And patience** : you'll need it.
 - **A pixel art software** : only if you want to modify what I've already did. Though I'm not sure that the files from *Pxlated (the web version)* will work on Aesprite or Libresprite..
 # Installation
 
@@ -40,6 +43,9 @@ To run this project on your device, well you need a few things :
 
 # If you want play the game directly on Godot
 
-- Click on the play button once you've imported everything
+- Click on the play button once you've imported everything !
 
-**But** you can also test the game on itch.io, I'll add a link later !
+##### There's the game on itch.io ! Though for some reason, a part of the level is missing , so try it directly on godot if you want the 'complete' game ( I'll add new things) !
+
+**Edit 1 : I've fixed the problem. IT was just an image that didn't show correctly , because it wasn't in the right folder !**
+
