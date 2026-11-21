@@ -8,7 +8,12 @@ Well it's a video game... More seriously, it's a platformer ; you're playing a l
 
 For now there's one level, but I know I'll add other level too.*
 
+###### Here's a little view on the 'first level'
 <img src="screenshot/Imagejeu.png" alt="Screenshot of the game" width="70%" >
+
+<img src="screenshot/Code.png.png" alt="Script of the player" width="70%" >
+
+
 
 
 # What did I use ?
